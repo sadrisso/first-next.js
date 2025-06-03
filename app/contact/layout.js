@@ -1,19 +1,33 @@
-import Link from 'next/link'
-import React from 'react'
+import Link from "next/link";
+import React from "react";
 
-const layout = ({children}) => {
-
+const layout = ({ children }) => {
   return (
-    <div>
-      <nav>
-        <ul className='flex justify-center items-center gap-3'>
-            <Link href="/contact/me">Me</Link>
-            <Link href="/contact/phone">Phone</Link>
+    <div className="min-h-screen bg-gray-900 text-white font-sans">
+      <nav className="bg-gray-800 shadow-md py-4">
+        <ul className="flex justify-center gap-6 text-lg font-medium">
+          <li>
+            <Link
+              href="/contact/email"
+              className="hover:text-blue-400 transition duration-200"
+            >
+              Email
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/contact/phone"
+              className="hover:text-blue-400 transition duration-200"
+            >
+              Phone
+            </Link>
+          </li>
         </ul>
       </nav>
-      {children}
-    </div>
-  )
-}
 
-export default layout
+      <main className="px-4 py-8">{children}</main>
+    </div>
+  );
+};
+
+export default layout;
