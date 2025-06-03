@@ -44,7 +44,7 @@ const Services = () => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 min-h-screen justify-center items-center">
       {services?.map((service) => {
         return (
-          <Link href={`/services/${service?.id}`}>
+          <Link key={service?.id} href={`/services/${service?.id}`}>
             <div className="border">
               <h2>{service?.id}</h2>
               <p>{service?.title}</p>
