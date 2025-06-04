@@ -2,20 +2,11 @@
 import { useState } from "react";
 import Count from "./components/Count";
 import Stat from "./components/Stat";
+import { useSelector } from "react-redux";
 
-const initialCounters = [
-  {
-    id: 1,
-    value: 1,
-  },
-  {
-    id: 2,
-    value: 2,
-  },
-];
 
 export default function Home() {
-  const [counters, setCounters] = useState(initialCounters);
+  const counters = useSelector((state) => state?.counters)
 
   const totalCount = counters?.reduce(
     (sum, current) => sum + current?.value,

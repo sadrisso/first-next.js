@@ -1,13 +1,14 @@
+'use client'
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [
   {
     id: 1,
-    value: 1,
+    value: 11,
   },
   {
     id: 2,
-    value: 2,
+    value: 0,
   },
 ];
 
