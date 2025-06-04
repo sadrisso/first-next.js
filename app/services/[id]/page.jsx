@@ -2,7 +2,7 @@ import React from "react";
 
 const ServiceDetailsPage = ({ params }) => {
   const id = parseInt(params?.id);
-  
+
   const services = [
     {
       id: 1,
@@ -41,7 +41,6 @@ const ServiceDetailsPage = ({ params }) => {
     },
   ];
   const service = services.find((s) => s?.id === id);
-
 
   return (
     <div className="min-h-screen flex justify-center items-center">
