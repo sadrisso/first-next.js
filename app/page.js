@@ -1,12 +1,13 @@
 "use client";
-import { useState } from "react";
 import Count from "./components/Count";
 import Stat from "./components/Stat";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { decrement, increment } from "./features/counters/countersSlice";
 
 
 export default function Home() {
   const counters = useSelector((state) => state?.counters)
+  const dispatch = useDispatch();
 
   const totalCount = counters?.reduce(
     (sum, current) => sum + current?.value,
@@ -14,29 +15,11 @@ export default function Home() {
   );
 
   const handleIncrement = (id) => {
-    const updatedCounter = counters?.map((counter) => {
-      if (counter?.id === id) {
-        return {
-          ...counter,
-          value: counter?.value + 1,
-        };
-      }
-      return counter;
-    });
-    setCounters(updatedCounter);
+    dispatch(increment(id))
   };
 
   const handleDecrement = (id) => {
-    const updatedCounter = counters?.map((counter) => {
-      if (counter?.id === id) {
-        return {
-          ...counter,
-          value: counter?.value - 1,
-        };
-      }
-      return counter;
-    });
-    setCounters(updatedCounter);
+    dispatch(decrement(id))
   };
 
   return (
