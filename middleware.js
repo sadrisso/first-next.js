@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 // This function can be marked `async` if using `await` inside
 export function middleware(request) {
   let dummyUserData = {
-    role: "Student",
+    role: "Admin",
     email: "text@admin.com"
   }
   let isServicesPage = request.nextUrl.pathname.startsWith("/services");
