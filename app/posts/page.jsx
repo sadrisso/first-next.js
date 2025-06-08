@@ -1,7 +1,8 @@
 import axios from "axios";
+import Link from "next/link";
 import React from "react";
 
-const getPosts = async () => {
+export const getPosts = async () => {
   const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
   return res?.data;
 };
@@ -18,6 +19,7 @@ export default async function Posts() {
               {post?.title}
             </h3>
             <p className="text-gray-600 dark:text-gray-300 text-sm">{post?.body}</p>
+            <Link href={`/posts/${post?.id}`}>Details</Link>
           </div>
         );
       })}
