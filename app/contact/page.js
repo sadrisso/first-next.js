@@ -1,5 +1,9 @@
 import React from 'react'
 
+export const metadata = {
+  title: "Contact",
+  description: "You can reach me via email or phone number"
+}
 const ContactPage = () => {
   // throw new Error("There was a huge error..!")
   

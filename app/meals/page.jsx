@@ -2,6 +2,11 @@ import axios from "axios";
 import React from "react";
 import MealSearchInput from "./components/MealSearchInput";
 
+export const metadata = {
+  title: "All Meals",
+  description: "Multiple meals is here for you"
+}
+
 export default async function MealPage({ searchParams }) {
   const query = (await searchParams?.search) || "";
 

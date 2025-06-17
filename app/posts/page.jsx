@@ -2,6 +2,11 @@ import axios from "axios";
 import Link from "next/link";
 import React from "react";
 
+export const metadata = {
+  title: "All Posts",
+  description: "Loading all JSON placeholder posts"
+}
+
 export const getPosts = async () => {
   const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
   return res?.data;

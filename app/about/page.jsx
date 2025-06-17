@@ -1,5 +1,10 @@
 import React from "react";
 
+export const metadata = {
+  title: "About Page",
+  description: "please learn about us to get our services"
+}
+
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white px-6 py-20 sm:px-10 font-[family-name:var(--font-geist-sans)]">

@@ -1,6 +1,11 @@
 import Link from "next/link";
 import React from "react";
 
+export const metadata = {
+  title: "All Services",
+  description: "Multiple IT services is here for you"
+}
+
 const Services = () => {
   const services = [
     {

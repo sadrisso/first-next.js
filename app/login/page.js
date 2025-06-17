@@ -1,5 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client"
 import React, { useState } from "react";
+
+export const metadata = {
+  title: "Login"
+}
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -59,7 +64,7 @@ const Login = () => {
           </button>
         </form>
         <p className="mt-4 text-center text-sm text-gray-600">
-          Don't have an account?{" "}
+          Don't have an account?
           <a href="/register" className="text-blue-600 hover:underline">
             Sign up
           </a>
