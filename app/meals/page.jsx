@@ -1,11 +1,12 @@
 import axios from "axios";
 import React from "react";
 import MealSearchInput from "./components/MealSearchInput";
+import Image from "next/image";
 
 export const metadata = {
   title: "All Meals",
-  description: "Multiple meals is here for you"
-}
+  description: "Multiple meals is here for you",
+};
 
 export default async function MealPage({ searchParams }) {
   const query = (await searchParams?.search) || "";
@@ -16,13 +17,11 @@ export default async function MealPage({ searchParams }) {
     const res = await axios.get(
       `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
     );
-    console.log("Response: ", res?.data?.meals);
+    console.log("Meals Data Response: ", res?.data?.meals);
     meals = res?.data?.meals || [];
   } catch (err) {
     console.log("Error in meals data: ", err);
   }
-
-  
 
   return (
     <div>
@@ -33,8 +32,13 @@ export default async function MealPage({ searchParams }) {
       <div className="min-h-screen grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         {meals?.map((singleMeal) => {
           return (
-            <div className="max-w-md mx-auto bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <img
+            <div
+              key={singleMeal?.idMeal}
+              className="max-w-md mx-auto bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+            >
+              <Image
+                width={640}
+                height={640}
                 className="w-full md:w-[300px] object-cover"
                 src={singleMeal?.strMealThumb}
                 alt={singleMeal?.strMeal}
